@@ -13,3 +13,11 @@
   </div>
 
 </div>
+
+<div class="contain">
+  <%- if @initiatives.present? -%>
+    <div class="initiatives--card-list ">
+      <%= render partial: 'initiatives/card', collection: @initiatives, as: :initiative %>
+    </div>
+  <%- end -%>
+</div>

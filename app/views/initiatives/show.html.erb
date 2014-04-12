@@ -1,0 +1,28 @@
+<div class="contain">
+  <header class="title--minicaps">
+    Initiative
+  </header>
+
+  <div class="inititiave">
+    Name: <%= link_to @initiative.name, initiative_path(@initiative) %> <br />
+    Logo: <%= image_tag @initiative.logo_url, width: 50, height: 50 %><br />
+    Tags: <%= @initiative.tag_list %><br />
+    Tags: <%= @initiative.geography_list %><br />
+    Short Description: <%= @initiative.short_description %><br>
+    Long Description: <%= @initiative.long_description %><br>
+    Offerings Count: <%= @initiative.offerings.count %><br>
+  </div>
+  <hr>
+  <div class="offerings">
+    <div class="item">
+      <% @offerings.each do |offering| %>
+        Name: <%= link_to offering.name, offering_path(offering) %> <br>
+        Years Term: <%= offering.years_term %> <br>
+        Interest Rate: <%= offering.interest_rate %> <br>
+        Minimum Investment Amount: <%= Initiative::MINIMUM_INVESTMENT_AMOUNT %> <br>
+        Maximum Investment Amount: <%= Initiative::MAXIMUM_INVESTMENT_AMOUNT %> <br>
+        Disclaimer: <%= offering.disclaimer %>
+      <% end -%>
+    </div>
+  </div>
+</div>
