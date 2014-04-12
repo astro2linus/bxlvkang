@@ -1,0 +1,166 @@
+//
+// Initiatives
+// Modules for displaying initiative lists and details.
+// ---------------------------------------------------------------------------
+
+
+// List - Card
+// ---------------------------------------------------------------------------
+
+.initiatives--card-list
+  +clearfix
+
+  // 4 wide
+  .initiative--card
+    +span-columns(3)
+    +nth-omega(4n)
+
+  // 3 wide
+  @media (max-width: 1060px)
+    .initiative--card
+      +span-columns(4)
+      +remove-nth-omega(4n)
+      +nth-omega(3n)
+
+  // 1 wide (horizontal)
+  @media (max-width: 800px) and (min-width: 551px)
+    .initiative--card
+      +span-columns(12)
+      +remove-nth-omega(3n)
+
+  // 1 wide (vertical)
+  @media (max-width: 550px)
+    .initiative--card
+      +span-columns(12)
+      +remove-nth-omega(2n)
+
+
+// Listing - Card
+// ---------------------------------------------------------------------------
+
+$cardHeight: 500px
+$imageHeight: 190px
+$headerHeight: 140px
+$tagListHeight: 20px
+$footerHeight: 70px
+
+.initiative--card
+  position: relative
+  height: $cardHeight
+  margin-bottom: 2rem
+  padding-bottom: $footerHeight
+  text-align: center
+  background: $bgWhite
+
+  .image
+    position: relative
+    height: $imageHeight
+    background-position: center center
+    +background-size(cover)
+
+  header
+    height: $headerHeight
+    padding: 20px 20px 0
+    overflow: hidden
+
+  h2
+    margin-bottom: 1rem
+    +serif-medium
+    a
+      display: block
+      color: $textGrayDark
+
+  p
+    +sans-serif-small
+    margin-bottom: 1rem
+
+  i
+    font-size: 0.9rem
+    color: #818ca1
+
+  .tags
+    +absolute(auto, 0, ($footerHeight + 10px), 0)
+    padding-bottom: 1rem
+    .tags--list
+      &:nth-child(2)
+        margin-top: 10px
+
+  .tags--list
+    margin: 0 20px
+
+  footer
+    +absolute(auto, 0, 0, 0)
+    // accounts for 1px due to border-box, keeps everything else on 10px
+    height: ($footerHeight + 1px)
+    padding: 20px 0
+    border-top: 1px solid $borderGrayLight
+    a
+      +filled-button
+      display: block
+      width: 70%
+      margin: 0 auto
+
+
+// Listing - Card (variation)
+// Content area changes based on height taken up by tag lists
+// ---------------------------------------------------------------------------
+
+// 20px accounts for margin between tag lists (1rem/10px) and is divisible
+// by the description line height (2rem)
+
+$spacerHeight: 20px
+
+.initiative--card.has-0-tag-lists
+  header
+    height: ($headerHeight + ($tagListHeight * 2) + $spacerHeight)
+
+.initiative--card.has-1-tag-list
+  header
+    height: ($headerHeight + $tagListHeight + $spacerHeight)
+
+.initiative--card.has-2-tag-lists
+  header
+    // uses default height ($headerHeight)
+
+
+
+// Listing - Card (variation - horizontal)
+// Content area changes based on height taken up by tag lists
+// ---------------------------------------------------------------------------
+
+@media (max-width: 800px) and (min-width: 551px)
+  $horHeaderHeight: 160px
+
+  .initiative--card
+    height: 260px
+    padding-bottom: 0
+    .image
+      +span-columns(4)
+    .content
+      +span-columns(8 omega)
+      text-align: left
+    header
+      margin-bottom: 2rem
+    p
+      margin-bottom: 0
+    .tags, footer
+      position: static
+    footer
+      +span-columns(4)
+      border-top: 0
+      clear: left
+
+  .initiative--card.has-0-tag-lists
+    header
+      height: auto
+      max-height: ($horHeaderHeight + ($tagListHeight * 2) + $spacerHeight)
+
+  .initiative--card.has-1-tag-list
+    header
+      height: auto
+      max-height: ($horHeaderHeight + $tagListHeight)
+
+  .initiative--card.has-2-tag-lists
+    header
+      height: auto
+      max-height: $horHeaderHeight

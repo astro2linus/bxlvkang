@@ -1,0 +1,50 @@
+//
+// Mastheads
+// Top-aligned hero sections.
+// ---------------------------------------------------------------------------
+
+
+// Masthead (home)
+// Currently in use on the home page, as we flesh out more pages these
+// modules may be abstracted and have their names changed.
+// ---------------------------------------------------------------------------
+
+.masthead--home
+  +absolute(0, 0, auto, 0)
+  height: 620px
+  background-attachment: fixed
+  background-image: image-url("masthead-home.jpg")
+  background-position: center top
+  background-repeat: no-repeat
+  +background-size(cover)
+
+
+// Masthead (home - text)
+// Currently in use on the home page, as we flesh out more pages these
+// modules may be abstracted and have their names changed.
+// ---------------------------------------------------------------------------
+
+.masthead--home-text
+  // height is needed somewhere to line up the initiatives
+  // with the bottom of the masthead
+  height: 297px
+  padding-top: 90px
+  text-align: center
+  h1
+    margin-bottom: 1rem
+    +serif-large
+    color: $textWhite
+    line-height: 5rem
+  h2
+    margin-bottom: 2rem
+    +sans-serif-large
+    color: #d5e2fb
+  a
+    +bordered-button-on-dark
+    width: 190px
+
+  @media (max-width: 767px)
+    padding-top: 60px
+
+  @media (max-width: 520px)
+    padding-top: 0

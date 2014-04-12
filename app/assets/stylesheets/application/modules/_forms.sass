@@ -1,0 +1,45 @@
+//
+// Forms
+// ---------------------------------------------------------------------------
+
+
+// Submit buttons
+// ---------------------------------------------------------------------------
+
+input[type="submit"]
+  +filled-button
+
+
+// Text inputs
+// ---------------------------------------------------------------------------
+
+input[type="text"],
+input[type="email"],
+input[type="password"]
+  display: block
+  +sans-serif-small
+  min-width: 30rem
+  height: 3rem
+  margin-bottom: 1rem
+  padding: 0 0.9rem
+  color: $textGrayLight
+  +placeholder-color($textGrayLight)
+  background: #fff
+  border: 1px solid #dde0e5
+  outline: none
+
+  &:disabled,
+  &.is-disabled
+    color: #b0b5c1
+    background: #f4f6f9
+
+  &:focus,
+  &.is-focused,
+    border-color: #5e84e4
+
+  &.is-valid
+    border-color: #7dcda2
+
+  &.is-invalid
+    border-color: #cc7b7d
+

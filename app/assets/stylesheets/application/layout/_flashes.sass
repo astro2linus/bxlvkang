@@ -1,0 +1,25 @@
+//
+// Flash messaging
+// The notification messages coming from controllers.
+// ---------------------------------------------------------------------------
+
+// This was quickly thrown together to make the messages less obtrusive
+// Could still use a little love
+
+// These colors came from the form field borders
+
+$flashGreen: #7dcda2
+$flashRed: #cc7b7d
+
+
+.flash--message
+  +sans-serif-medium
+  line-height: 4rem
+
+  &.is-notice
+    color: darken($flashGreen, 25%)
+    background: lighten($flashGreen, 32%)
+
+  &.is-alert
+    color: darken($flashRed, 20%)
+    background: lighten($flashRed, 32%)

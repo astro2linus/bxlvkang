@@ -1,0 +1,52 @@
+//
+// Grid
+// Mixins and helpers for creating rows and columns.
+// ---------------------------------------------------------------------------
+
+
+// Box model
+// ---------------------------------------------------------------------------
+
+*
+  +box-sizing("border-box")
+
+
+// Susy
+// Susy 2 is out but it requires Sass 3.3 which is incompatible with the
+// current sass-rails. Once the issues are fixed we can upgrade to Susy 2.
+// https://github.com/rails/sass-rails/pull/192
+// ---------------------------------------------------------------------------
+
+$total-columns: 12
+$column-width: 8.6rem
+$gutter-width: 2rem
+$grid-padding: 3rem
+
+$media-layout: 12
+
+
+// Containers
+// ---------------------------------------------------------------------------
+
+= contain
+  position: relative
+  +container
+  +clearfix
+
+  @media (max-width: 768px)
+    padding-left: 2rem
+    padding-right: 2rem
+
+  @media (max-width: 480px)
+    padding-left: 1rem
+    padding-right: 1rem
+
+.container
+  position: relative
+
+.contain
+  +contain
+
+// Temporary, still sorting out containers.
+section
+  margin-bottom: 2rem

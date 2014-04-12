@@ -1,0 +1,60 @@
+//
+// Typography
+// All typographic styles. Could be broken out in the future if need be.
+// ---------------------------------------------------------------------------
+
+
+// Base
+// ---------------------------------------------------------------------------
+
+html
+  font-size: 62.5%
+
+body
+  +sans-serif-medium
+  color: $textGrayMedium
+
+a
+  color: $textBlueLight
+  text-decoration: none
+  +transition(color .2s)
+  &:hover
+    color: $textBlueMedium
+
+
+// Helpers
+// These can be used on elements when adding values via Sass is undesirable.
+// ---------------------------------------------------------------------------
+
+// Sans-Serif
+
+.copy--sans-serif-minicaps
+  +sans-serif-minicaps
+
+.copy--sans-serif-medium
+  +sans-serif-medium
+
+.copy--sans-serif-small
+  +sans-serif-small
+
+.copy--sans-serif-xsmall
+  +sans-serif-xsmall
+
+// Serif
+
+.copy--serif-large
+  +serif-large
+
+.copy--serif-medium
+  +serif-medium
+
+.copy--serif-small
+  +serif-small
+
+
+// Titles
+// ---------------------------------------------------------------------------
+
+.title--minicaps
+  +sans-serif-minicaps
+  color: $textGrayMedium

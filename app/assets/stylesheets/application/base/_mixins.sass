@@ -1,0 +1,65 @@
+//
+// Mixins
+// A collection of utility mixins to use while styling.
+// ---------------------------------------------------------------------------
+
+
+// Clearing
+// ---------------------------------------------------------------------------
+
+= clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+
+// Input placeholder text
+// ---------------------------------------------------------------------------
+
+= input-placeholder
+  &.placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+= placeholder-color($color)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+
+
+// Positioning
+// ---------------------------------------------------------------------------
+
+= absolute($top, $right, $bottom, $left)
+  position: absolute
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+= fixed($top, $right, $bottom, $left)
+  position: fixed
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left
+
+= relative($top, $right, $bottom, $left)
+  position: relative
+  top: $top
+  right: $right
+  bottom: $bottom
+  left: $left

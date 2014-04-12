@@ -1,0 +1,103 @@
+//
+// Fonts
+// Check Typekit for the actual fonts delivered.
+// Note: Icon fonts are imported in icons.sass.
+// ---------------------------------------------------------------------------
+
+
+// Adelle
+// ---------------------------------------------------------------------------
+
+=adelle($weight: "thin", $font-style: false)
+  font-family: "adelle", Georgia, serif
+
+  @if $font-style == "italic"
+    font-style: italic
+
+  @if $weight == "thin"
+    font-weight: 100
+
+  @if $weight == "light"
+    font-weight: 300
+
+  @if $weight == "regular"
+    font-weight: 400
+
+  @if $weight == "semibold"
+    font-weight: 600
+
+  @if $weight == "bold"
+    font-weight: 700
+
+
+// Open Sans
+// ---------------------------------------------------------------------------
+
+=open-sans($weight: "regular", $font-style: false)
+  font-family: "open-sans", Arial, sans-serif
+
+  @if $font-style == "italic"
+    font-style: italic
+
+  @if $weight == "light"
+    font-weight: 300
+
+  @if $weight == "regular"
+    font-weight: 400
+
+  @if $weight == "semibold"
+    font-weight: 600
+
+  @if $weight == "bold"
+    font-weight: 700
+
+
+// Mixins (sans-serif)
+// These abstractions allow for easier swapping of fonts.
+// ---------------------------------------------------------------------------
+
+=sans-serif-minicaps
+  +open-sans("bold")
+  font-size: 1.2rem
+  line-height: 3rem
+  text-transform: uppercase
+
+=sans-serif-large
+  +open-sans
+  font-size: 1.9rem
+  line-height: 3rem
+
+=sans-serif-medium
+  +open-sans
+  font-size: 1.6rem
+  line-height: 3rem
+
+=sans-serif-small
+  +open-sans
+  font-size: 1.4rem
+  line-height: 2rem
+
+=sans-serif-xsmall
+  +open-sans
+  font-size: 1.2rem
+  line-height: 2rem
+
+
+// Mixins (serif)
+// These abstractions allow for easier swapping of fonts.
+// ---------------------------------------------------------------------------
+
+=serif-large
+  +adelle
+  font-size: 3.6rem
+  line-height: 5rem
+
+=serif-medium
+  +adelle("regular")
+  font-size: 2rem
+  line-height: 3rem
+
+=serif-small
+  +adelle
+  font-size: 1.4rem
+  line-height: 2rem

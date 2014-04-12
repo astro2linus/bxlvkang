@@ -1,0 +1,12 @@
+//
+// Hit area
+// If you place this in an element that has positioning (not static)
+// it will create a clickable hit area taking up the parent element's area.
+// This can be used on cards/listings to accommodate touch screens.
+// ---------------------------------------------------------------------------
+
+.hit-area
+  +absolute(0, 0, 0, 0)
+  display: block
+  background: rgba(0,0,0,0)
+

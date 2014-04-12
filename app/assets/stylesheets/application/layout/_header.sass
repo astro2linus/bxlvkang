@@ -1,0 +1,39 @@
+//
+// Header
+// The primary header/nav at the top of the page
+// ---------------------------------------------------------------------------
+
+.layout--header
+  +contain
+  padding-top: 40px
+  padding-bottom: 60px
+  +clearfix
+  z-index: $zHeader
+
+  .brand--vested
+    float: left
+
+  nav
+    float: right
+
+  ul
+    +horizontal-list
+    a
+      +bordered-button
+
+
+// Header (Bright)
+// A header stye that uses brighter text for use on dark backgrounds.
+// Applying the style via body class for now as I'm unsure about the
+// likelyhood of similar changes moving forward. Plus it's tough to hook
+// classes to something in the application layout without controller code.
+// ---------------------------------------------------------------------------
+
+body.home.index
+
+  .layout--header
+    .brand--vested a
+      color: $textWhite
+    nav a
+      +bordered-button-on-dark
+      color: $textWhite

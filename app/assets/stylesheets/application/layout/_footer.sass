@@ -1,0 +1,59 @@
+//
+// Footer
+// ---------------------------------------------------------------------------
+
+.layout--footer
+  padding: 80px 0 40px
+  color: $textGrayLight
+  .brand--calvert
+    +span-columns(3)
+  nav
+    div
+      +span-columns(3)
+      +nth-omega(3n)
+    a
+      +sans-serif-small
+    i
+      font-size: 1.1rem
+  .title--minicaps
+    color: $textGrayLight
+  .legal
+    padding-top: 80px
+  .copyright
+    +span-columns(3)
+    +sans-serif-xsmall
+    strong
+      display: block
+      +open-sans("bold")
+    span
+      display: block
+  .disclaimer
+    +span-columns(9 omega)
+    +sans-serif-xsmall
+
+  @media (max-width: 880px)
+    .brand--calvert
+      +span-columns(12)
+      margin-bottom: 2rem
+    nav div
+      +span-columns(3)
+
+  @media (max-width: 640px)
+    nav div
+      +span-columns(4)
+    .copyright
+      +span-columns(4)
+    .disclaimer
+      +span-columns(8 omega)
+
+  @media (max-width: 560px)
+    nav div
+      +span-columns(12)
+      margin-bottom: 2rem
+    .legal
+      padding-top: 30px
+    .copyright
+      +span-columns(12)
+      margin-bottom: 1rem
+    .disclaimer
+      +span-columns(12)
