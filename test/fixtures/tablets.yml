@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyString
+  short_description: MyText
+  long_description: MyText
+  display: false
+  image: MyString
+  slug: MyString
+  order: 1
+
+two:
+  headline: MyString
+  short_description: MyText
+  long_description: MyText
+  display: false
+  image: MyString
+  slug: MyString
+  order: 1
