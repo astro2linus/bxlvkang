@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_to, "/home/deployer/apps/bxlvkang"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -22,7 +22,6 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 
 # Default value for :pty is false
 set :pty, true
-ssh_options[:forward_agent] = true
 
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}
