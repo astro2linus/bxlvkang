@@ -1,15 +1,12 @@
 # config valid only for Capistrano 3.1
 lock '3.2.0'
 
-server "192.81.129.197", :web, :app, :db, primary: true
-
 set :application, 'bxlvkang'
 set :user, "deployer"
 set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
-set :branch, "master"
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, "/home/#{user}/apps/#{application}"
