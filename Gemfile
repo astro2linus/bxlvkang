@@ -32,6 +32,8 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'rails_admin'
 

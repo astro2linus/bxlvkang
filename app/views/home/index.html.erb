@@ -1,12 +1,12 @@
-<div class="masthead--home">
+<div class="masthead--home" style="background-image: url(<%= @masthead.try(:image_url) %>);">
 </div>
 <div class="contain">
   <div class="masthead--home-text">
     <h1>
-      软 枣 生 产 基 地
+      <%= @masthead.try(:header_text) %>
     </h1>
     <h2>
-      基地1500余亩，种植面积位居全国首位
+      <%= @masthead.try(:byline_text) %>
     </h2>
   </div>
 
