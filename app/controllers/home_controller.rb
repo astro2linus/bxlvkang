@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@initiatives = ['a','b','c','d']
+  	@tablets = Tablet.all
   end
 end

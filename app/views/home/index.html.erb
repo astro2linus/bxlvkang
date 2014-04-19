@@ -1,8 +1,6 @@
 <div class="masthead--home">
 </div>
-
 <div class="contain">
-
   <div class="masthead--home-text">
     <h1>
       软 枣 生 产 基 地
@@ -15,9 +13,9 @@
 </div>
 
 <div class="contain">
-  <%- if @initiatives.present? -%>
+  <%- if @tablets.present? -%>
     <div class="initiatives--card-list ">
-      <%= render partial: 'initiatives/card', collection: @initiatives, as: :initiative %>
+      <%= render partial: 'initiatives/card', collection: @tablets, as: :tablet %>
     </div>
   <%- end -%>
 </div>
