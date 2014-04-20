@@ -2,7 +2,7 @@
 lock '3.2.0'
 
 set :application, 'bxlvkang'
-set :deploy_user, 'deployer'
+set :user, 'deployer'
 set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
 
 set :rbenv_type, :user
@@ -70,16 +70,16 @@ namespace :deploy do
     end
   end
 
-  task :setup_config  do
-    on roles(:app) do 
-      # sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bxlvkang"
-      # sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_bxlvkang"
-      run "mkdir -p #{shared_path}/config"
-      #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-      puts "Now edit the config files in #{shared_path}."
-    end
-  end
-  after "deploy:check", :setup_config
+  # task :setup_config  do
+  #   on roles(:app) do 
+  #     # sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bxlvkang"
+  #     # sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_bxlvkang"
+  #     run "mkdir -p #{shared_path}/config"
+  #     #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+  #     puts "Now edit the config files in #{shared_path}."
+  #   end
+  # end
+  #after "deploy:check", :setup_config
 
   # task :symlink_config do
   #   on roles(:app) do
