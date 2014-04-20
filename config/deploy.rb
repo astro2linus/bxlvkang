@@ -2,6 +2,7 @@
 lock '3.2.0'
 
 set :application, 'bxlvkang'
+set :deploy_user, 'deployer'
 set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
 
 set :rbenv_type, :system
