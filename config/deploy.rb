@@ -3,6 +3,8 @@ lock '3.2.0'
 
 set :application, 'bxlvkang'
 set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
+
+set :rbenv_type, :system
 set :rbenv_ruby, '2.0.0-p451'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -21,10 +23,10 @@ set :log_level, :debug
 
 # Default value for :pty is false
 set :pty, true
-default_run_options[:pty] = true
 
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -34,6 +36,27 @@ default_run_options[:pty] = true
 
 # Default value for keep_releases is 5
 set :keep_releases, 5
+
+set(:config_files, %w(
+  nginx.conf
+  database.example.yml
+  unicorn.rb
+  unicorn_init.sh
+))
+
+# files which need to be symlinked to other parts of the
+# filesystem. For example nginx virtualhosts, log rotation
+# init scripts etc.
+set(:symlinks, [
+  {
+    source: "nginx.conf",
+    link: "/etc/nginx/sites-enabled/bxlvkang"
+  },
+  {
+    source: "unicorn_init.sh",
+    link: "/etc/init.d/unicorn_bxlvkang"
+  }
+])
 
 namespace :deploy do
 
@@ -46,22 +69,22 @@ namespace :deploy do
     end
   end
 
-  task :setup_config  do
-    on roles(:app) do 
-      sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bxlvkang"
-      sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_bxlvkang"
-      run "mkdir -p #{shared_path}/config"
-      put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-      puts "Now edit the config files in #{shared_path}."
-    end
-  end
-  after "deploy:check", :setup_config
+  # task :setup_config  do
+  #   on roles(:app) do 
+  #     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bxlvkang"
+  #     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_bxlvkang"
+  #     run "mkdir -p #{shared_path}/config"
+  #     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+  #     puts "Now edit the config files in #{shared_path}."
+  #   end
+  # end
+  #after "deploy:check", :setup_config
 
-  task :symlink_config do
-    on roles(:app) do
-      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    end
-  end
+  # task :symlink_config do
+  #   on roles(:app) do
+  #     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  #   end
+  # end
   #after "deploy:finalize_update", "deploy:symlink_config"
 
   desc "Make sure local git is in sync with remote."
