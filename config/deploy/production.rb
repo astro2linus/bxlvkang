@@ -28,6 +28,7 @@ set :branch, "master"
 set :ssh_options, {
   keys: %w(/home/deployer/.ssh/id_rsa),
   forward_agent: true,
+  auth_methods: %w(publickey)
   #auth_methods: %w(password)
 }
 
