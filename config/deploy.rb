@@ -8,6 +8,9 @@ set :branch, 'master'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.0.0-p451'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -40,12 +43,12 @@ set :linked_dirs, %w{public/uploads}
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set(:config_files, %w(
-  config/nginx.conf
-  config/database.example.yml
-  congfig/unicorn.rb
-  config/unicorn_init.sh
-))
+# set(:config_files, %w(
+#   config/nginx.conf
+#   config/database.example.yml
+#   congfig/unicorn.rb
+#   config/unicorn_init.sh
+# ))
 
 # files which need to be symlinked to other parts of the
 # filesystem. For example nginx virtualhosts, log rotation
@@ -117,16 +120,17 @@ namespace :deploy do
   #     # execute :touch, release_path.join('tmp/restart.txt')
   #   end
   # end
+  after :finishing, 'deploy:cleanup'
+  
+  # after :publishing, :restart
 
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
+  # after :restart, :clear_cache do
+  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
+  #     # Here we can do anything such as:
+  #     # within release_path do
+  #     #   execute :rake, 'cache:clear'
+  #     # end
+  #   end
+  # end
 
 end
