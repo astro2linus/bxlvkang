@@ -39,10 +39,10 @@ set :linked_files, %w{config/database.yml}
 set :keep_releases, 5
 
 set(:config_files, %w(
-  nginx.conf
-  database.example.yml
-  unicorn.rb
-  unicorn_init.sh
+  config/nginx.conf
+  config/database.example.yml
+  congfig/unicorn.rb
+  config/unicorn_init.sh
 ))
 
 # files which need to be symlinked to other parts of the
