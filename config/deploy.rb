@@ -2,8 +2,9 @@
 lock '3.2.0'
 
 set :application, 'bxlvkang'
-set :user, 'deployer'
+#set :user, 'deployer'
 set :repo_url, 'git@github.com:astro2linus/bxlvkang.git'
+set :branch, 'master'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.0.0-p451'
@@ -11,7 +12,7 @@ set :rbenv_ruby, '2.0.0-p451'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/deployer/apps/bxlvkang"
+set :deploy_to, "/home/deploy/apps/bxlvkang"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -31,6 +32,7 @@ set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{public/uploads}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -50,26 +52,33 @@ set(:config_files, %w(
 # init scripts etc.
 set(:symlinks, [
   {
-    source: "nginx.conf",
+    source: "config/nginx.conf",
     link: "/etc/nginx/sites-enabled/bxlvkang"
   },
   {
-    source: "unicorn_init.sh",
+    source: "config/unicorn_init.sh",
     link: "/etc/init.d/unicorn_bxlvkang"
   }
 ])
 
 namespace :deploy do
 
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command do
-      on roles(:app), in: :sequence, wait: 5 do
-        run "/etc/init.d/unicorn_bxlvkang #{command}"
-      end
-    end
-  end
+  # %w[start stop restart].each do |command|
+  #   desc "#{command} unicorn server"
+  #   task command do
+  #     on roles(:app), in: :sequence, wait: 5 do
+  #       run "/etc/init.d/unicorn_bxlvkang #{command}"
+  #     end
+  #   end
+  # end
 
+  # desc "start unicorn server"
+  # task :start do
+  #   invoke 'unicorn_bxlvkang start'
+  #   on roles(:app) do
+  #     #run "/etc/init.d/unicorn_bxlvkang start"
+  #   end
+  # end
   # task :setup_config  do
   #   on roles(:app) do 
   #     # sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/bxlvkang"
@@ -99,6 +108,7 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
+
 
   # desc 'Restart application'
   # task :restart do

@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deployer@192.81.129.197}
-role :web, %w{deployer@192.81.129.197}
-role :db,  %w{deployer@192.81.129.197}
+role :app, %w{deploy@192.81.129.197}
+role :web, %w{deploy@192.81.129.197}
+role :db,  %w{deploy@192.81.129.197}
 
 
 # Extended Server Syntax
@@ -15,7 +15,7 @@ role :db,  %w{deployer@192.81.129.197}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '192.81.129.197', user: 'deployer', roles: %w{web app}, my_property: :my_value
+server '192.81.129.197', user: 'deploy', roles: %w{web app}, my_property: :my_value
 set :branch, "master"
 
 # Custom SSH Options
@@ -25,13 +25,13 @@ set :branch, "master"
 #
 # Global options
 # --------------
-set :ssh_options,{
-	user: 'deployer',
-  keys: %w(/home/deployer/.ssh/id_rsa),
-  forward_agent: true,
-  auth_methods: %w(publickey)
-  #auth_methods: %w(password)
-}
+# set :ssh_options,{
+# 	user: 'deployer',
+#   keys: %w(/home/deployer/.ssh/id_rsa),
+#   forward_agent: true,
+#   auth_methods: %w(publickey)
+#   #auth_methods: %w(password)
+# }
 
 #
 # And/or per server (overrides global)
