@@ -1,4 +1,5 @@
 Bxlvkang::Application.routes.draw do
+  get "tablets/show"
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "home#index"

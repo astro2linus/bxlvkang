@@ -1,21 +1,21 @@
 <div class="initiative--card">
 
   <div class="image" style="background-image: url(<%= tablet.image_url %>);">
-    <%= link_to "", "#", class: "hit-area" %>
+    <%= link_to "", tablet_path(tablet), class: "hit-area" %>
   </div>
 
   <div class="content">
     <header>
       <h2>
-        <%= link_to tablet.headline, "#" %>
+        <%= link_to tablet.headline, tablet_path(tablet) %>
       </h2>
       <p>
-        <%= tablet.short_description %>
+        <%= truncate(tablet.short_description,  length: 85, omission: '...') %>
       </p>
     </header>
   </div>
   <footer>
-    <%= link_to "更多...", "#" -%>
+    <%= link_to "更多...", tablet_path(tablet) -%>
   </footer>
 </div>
 
