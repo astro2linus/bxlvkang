@@ -8,6 +8,11 @@
     <div class="nav--about">
       <div>
         <nav>
+          <ul>
+            <% @tablets.each do |t| %>
+              <li><%= link_to t.headline, tablet_path(t), :class => "is-active" %></li>
+            <% end %>
+          </ul>
         </nav>
       </div>
     </div>

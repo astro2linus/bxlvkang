@@ -1,0 +1,107 @@
+//
+// Mixins - Buttons
+// Site-wide button styles
+// ---------------------------------------------------------------------------
+
+
+// Round Button
+// Base styling for all other buttons
+// ---------------------------------------------------------------------------
+
+= round-button
+  display: inline-block
+  padding: 0 15px
+  +sans-serif-minicaps
+  line-height: 3rem
+  border: 0
+  border-radius: 3px
+  text-align: center
+  cursor: pointer
+  // prevents selection of button text
+  user-select: none
+  // aids in styling inputs in iOS
+  -webkit-appearance: none
+  // make sure inputs wrap
+  white-space: nowrap
+  i
+    position: relative
+    top: 1px
+    color: rgba($textWhite, .35)
+    font-size: 1rem
+    &.is-aligned-right
+      padding-left: .5rem
+  &.is-big
+    padding-top: 1rem
+    padding-bottom: 1rem
+  &.is-full-width
+    +span-columns(12)
+
+
+// Bordered Button
+// ---------------------------------------------------------------------------
+
+= bordered-button
+  +round-button
+  color: $textBlueGray
+  // accounts for borders
+  line-height: 2.8rem
+  border: 1px solid rgba(140,151,172,.5)
+  i
+    color: rgba($textBlueGray, .35)
+  &:hover,
+  &.is-hover,
+    color: $textBlueLight
+    border-color: $textBlueLight
+    i
+      color: $textBlueLight
+  &.is-inverse
+    +bordered-button-inverse
+
+
+// Bordered Button (Inverse)
+// ---------------------------------------------------------------------------
+
+= bordered-button-inverse
+  +round-button
+  color: $textWhite
+  // accounts for borders
+  line-height: 2.8rem
+  border: 1px solid rgba($borderWhite, .5)
+  i
+    color: rgba($textWhite, .35)
+  &:hover,
+  &.is-hover
+    color: $textBlueLight
+    background: $bgWhite
+    border-color: $bgWhite
+    i
+      color: $textBlueLight
+
+
+// Filled Button
+// ---------------------------------------------------------------------------
+
+= filled-button
+  +round-button
+  color: $textWhite
+  background: $btnGreenMedium
+  &:hover,
+  &.is-hover
+    color: $textWhite
+    background: $btnGreenLight
+
+
+// Share Buttons
+// Slightly different style for Twitter and Facebook share buttons
+// ---------------------------------------------------------------------------
+
+= share-button
+  +round-button
+  color: $textBlueLighter
+  border: 1px solid rgba($textBlueLighter, .4)
+  i
+    color: $textBlueLighter
+    font-size: 1.1rem
+  &:hover,
+  &.is-hover
+    border-color: rgba($textBlueLighter, 1)

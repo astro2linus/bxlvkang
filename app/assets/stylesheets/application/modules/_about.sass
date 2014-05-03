@@ -21,7 +21,7 @@
   .image-container
     +absolute(0, 0, 0, 0)
     width: 50%
-    background-color: $bgWhite
+    background-color: $bgAbout
 
   .image
     +fixed(0, 0, 0, 0)
@@ -32,7 +32,7 @@
     opacity: .5
 
     @media (min-width: 1200px)
-      background-image: asset-url("about/bg-desktop.jpg")
+      background-image: asset-url("about-bg.jpg")
 
   h1
     margin-bottom: 5rem
@@ -49,6 +49,8 @@
     // Doesn't use grid as position: fixed makes the browser the container.
     width: 45%
     max-width: 500px
+    margin-top: 50px
+    margin-left: 40px
     li
       margin-bottom: 1rem
       +clearfix
@@ -57,7 +59,9 @@
       color: $textWhite
       line-height: 3rem
       &.is-active
-        color: $textGrayDark
+        +round-button
+        font-size: 1.2em
+        color: #556b2f
         background: $bgWhite
 
     &.is-aligned-bottom

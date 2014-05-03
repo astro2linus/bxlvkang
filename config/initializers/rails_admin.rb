@@ -47,11 +47,35 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.model 'AboutPages' do
+    label "关于我们"
+    label_plural "关于我们"
 
+    field :headline do
+      label "标题"
+    end
+
+    field :about_us_header do
+      label "关于我们标题" 
+    end
+
+    field :about_us_text do
+      label "关于我们详细内容"
+    end
+
+    field :contact_us_header do
+      label "联系我们标题" 
+    end
+
+    field :contact_us_text do
+      label "联系我们详细内容"
+    end
+
+  end
 
   config.model 'HomeMasterhead' do
-    label "主页背景"
-    label_plural "主页背景"
+    label "主页"
+    label_plural "主页"
 
     field :header_text do
       label "中央标题"

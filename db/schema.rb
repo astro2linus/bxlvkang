@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503074549) do
+ActiveRecord::Schema.define(version: 20140503112530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_pages", force: true do |t|
+    t.text     "headline"
+    t.text     "about_us_header"
+    t.text     "about_us_text"
+    t.text     "contact_us_header"
+    t.text     "contact_us_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "home_masterheads", force: true do |t|
     t.text     "header_text"

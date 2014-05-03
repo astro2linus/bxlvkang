@@ -1,0 +1,47 @@
+<div class="layout--about">
+
+  <div class="backdrop">
+    <div class="image-container">
+      <div class="image"></div>
+    </div>
+    <div class="nav--about">
+      <div>
+        <nav>
+          <h1>
+            <%= @content.try(:about_page_headline) %>
+          </h1>
+          <ul>
+            <li><%= link_to "关于我们", "#about", :class => "is-active" %></li>
+            <li><%= link_to "联系我们", "#contact",:class => "is-active" %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="contain">
+    <div class="content">
+
+      <div class="section">
+        <a id="about"></a>
+        <h2>
+          <%= @content.try(:about_us_header) %>
+        </h2>
+        <div class="copy--body">
+          <%= raw @content.try(:about_us_text) %>
+        </div>
+      </div>
+
+      <div class="section">
+        <a id="contact"></a>
+        <h2>
+          <%= @content.try(:contact_us_header) %>
+        </h2>
+        <div class="copy--body">
+          <%= raw @content.try(:contact_us_text) %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

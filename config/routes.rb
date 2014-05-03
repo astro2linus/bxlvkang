@@ -1,8 +1,11 @@
 Bxlvkang::Application.routes.draw do
+  get "about_pages/index"
   get "tablets/show"
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "home#index"
+  get '/about', to: 'about_pages#index', as: 'about'
+
   resources :tablets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

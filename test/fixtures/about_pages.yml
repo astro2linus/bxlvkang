@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyText
+  about_us_header: MyText
+  about_us_text: MyText
+  contact_us_header: MyText
+  contact_us_text: MyText
+
+two:
+  headline: MyText
+  about_us_header: MyText
+  about_us_text: MyText
+  contact_us_header: MyText
+  contact_us_text: MyText
