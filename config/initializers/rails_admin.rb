@@ -114,7 +114,7 @@ RailsAdmin.config do |config|
       label "图片"
     end
     field :order do
-      label "顺序(按数字从小到大排列)"
+      label "顺序"
     end
   end
 
