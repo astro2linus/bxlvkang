@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     bcrypt (3.1.7)
+    bootstrap-wysihtml5-rails (0.3.1.24)
+      railties (>= 3.0)
     builder (3.1.4)
     capistrano (3.2.0)
       i18n
@@ -213,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-wysihtml5-rails
   capistrano (~> 3.2.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)

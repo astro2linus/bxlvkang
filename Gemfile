@@ -36,6 +36,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'rails_admin'
+gem 'bootstrap-wysihtml5-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

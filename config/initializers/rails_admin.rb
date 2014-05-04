@@ -59,16 +59,18 @@ RailsAdmin.config do |config|
       label "关于我们标题" 
     end
 
-    field :about_us_text do
+    field :about_us_text, :wysihtml5 do
       label "关于我们详细内容"
+      config_options :html => true
     end
 
     field :contact_us_header do
       label "联系我们标题" 
     end
 
-    field :contact_us_text do
+    field :contact_us_text, :wysihtml5 do
       label "联系我们详细内容"
+      config_options :html => true
     end
 
   end
@@ -77,11 +79,13 @@ RailsAdmin.config do |config|
     label "主页"
     label_plural "主页"
 
-    field :header_text do
+    field :header_text, :wysihtml5 do
       label "中央标题"
+      config_options :html => true
     end
-    field :byline_text do
+    field :byline_text, :wysihtml5 do
       label "中央副标题"
+      config_options :html => true
     end
     field :image do
       label "背景图片"
@@ -95,17 +99,19 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Tablet' do
-    label "其他页面"
-    label_plural "其他页面"
+    label "卡片"
+    label_plural "卡片"
 
     field :headline do
       label "标题"
     end
-    field :short_description do
+    field :short_description, :wysihtml5 do
       label "简短描述"
+      config_options :html => true
     end
-    field :long_description do
+    field :long_description, :wysihtml5 do
       label "详细内容"
+      config_options :html => true
     end
     field :display do
       label "显示?"
